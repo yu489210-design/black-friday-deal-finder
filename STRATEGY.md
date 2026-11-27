@@ -1,0 +1,19 @@
+# Strategy — DealTruth (black-friday-deal-finder-01)
+
+## What the judge rewards, and how this entry answers it
+
+The judge compares two entries by their screenshots and a short source outline, in this order: (1) a working deal finder shown in screenshots, (2) real, checked deals, (3) usefulness to a shopper, (4) ease of use and look, (5) speed and structure. Screenshots carry most of the verdict, so every design choice below is made to be legible when shrunk to a contact sheet.
+
+1. **Working deal finder, shown.** Four routes, each reached by a link in the top nav: All deals, Top picks, Compare stores, How we check; plus a deal-detail page per deal. The cover screenshot is the All deals page with its controls and the first deals; the other screenshots are a deal detail (AirPods Pro 3, with its cross-store comparison), the same page with filters applied (Tech, 40% off or more), and a phone view. Every control does something: search narrows the grid live, category chips / store / discount filters re-filter it, sort re-orders it, and clicking a deal opens its detail page. Nothing is a placeholder.
+2. **Real, checked deals.** 24 deals, every one read on 27 Nov 2026 at a named store or in a deals source that names the store, with its sale price, usual price, discount (computed from the two prices, never typed), check time and source on its card. The verdict on each deal is honest, not flattering: five NEW LOWs, twelve GREAT DEALs, six STRONGs and one OK DEAL — the Switch 2 bundle at 9% off is the proof the signal is not just a badge printer. The How page explains the verdict rules and the “comparable value” trap.
+3. **Usefulness to a shopper.** Best deals first: the default sort is best verdict first, and the Top picks page lists only NEW LOW and GREAT DEAL entries by biggest % off. The Compare page puts the same product at two stores side by side (AirPods Pro 3: Amazon $149 vs Best Buy $179.99; MacBook Air M5: Amazon $989 vs Best Buy $1,049; Switch 2 bundle: a tie at $499.99). Every card carries what a shopper needs to act: the store link, the saving in dollars, and any condition (doorbuster valid through 28 Nov, colour prices vary).
+4. **Ease of use and look.** One nav, one page per question, big sale prices first, verdict pills in plain words, struck-through usual prices and red % badges. The phone layout collapses to one column with stacked controls; the phone screenshot proves it. An original design — deep navy header with an amber accent, white cards on a warm paper page — no copied brand, text or images.
+5. **Speed and structure.** No framework, no library, no webfont, no network request. First load is `index.html` + one CSS file + four small JS modules (data, format, views, router). Source is split by job, files and functions named for what they do (`filterDeals`, `dealCard`, `verdictPill`, `checkedLabel`).
+
+## Deal selection
+
+Breadth where it can be verified, honesty where it cannot. The 24 deals cover 7 categories and 4 stores, but every price was corroborated in at least one published source and the flagships in two (AirPods Pro 3 $149: CNN Underscored and the Facebook roundup; MacBook Air $989: 9to5Toys via BeeBulletin, with Best Buy's $1,049 as the cross-check; Sony XM5 $169.99, TCL $229.99, HP OmniBook $449.99: Best Buy's own release via 9to5Toys and the AP). Deals whose price appeared in only one thin source, or whose usual price could not be pinned down, were left out — that is why there is no generic “up to 50% off” filler and no category with a single unverified item.
+
+## What was deliberately left out
+
+No live price fetch (the brief requires offline static files), no user accounts, no price-history chart (no verified 12-month series was available for these listings, and an invented chart would be worse than none — the verdict evidence states the track record in words instead), no second-hand “deal of the day” feed. Depth and checkability beat breadth that cannot be verified.
